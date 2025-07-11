@@ -13,7 +13,6 @@ import {
 
 import { useLoginMutate } from "@/services/auth/auth.api";
 import { LoginPayload } from "@/services/auth/auth.type";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/services/auth/auth.validation";
@@ -21,6 +20,7 @@ import { toast } from "react-toastify";
 import RHFTextField from "@/components/forms/rhf-input";
 import FormProvider from "@/providers/FormProvider";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const defaultValues = {
     email: "",
@@ -40,7 +40,8 @@ const LoginForm = () => {
         try {
             await login(data);
             toast.success("Login successful!");
-            router.push("/");
+            router.push('/'); // Replace window.location.href with router.push
+            router.refresh();
         } catch (error) {
             if (error instanceof Error) {
                 toast.error(error.message);

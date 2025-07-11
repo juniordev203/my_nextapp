@@ -3,7 +3,7 @@ import { COOKIE_KEYS } from "@/lib/keys";
 
 export const setAccessTokenCookie = (accessToken: string) => {
   Cookies.set(COOKIE_KEYS.ACCESS_TOKEN, accessToken, {
-    expires: 7, // 7 days
+    expires: 7, // days
     sameSite: "strict",
   });
 };
@@ -14,4 +14,11 @@ export const getAccessTokenCookie = (): string | undefined => {
 
 export const clearAccessTokenCookie = () => {
   Cookies.remove(COOKIE_KEYS.ACCESS_TOKEN);
+};
+
+export const setRefreshTokenCookie = (refreshToken: string) => {
+  Cookies.set(COOKIE_KEYS.REFRESH_TOKEN, refreshToken, {
+    expires: 30, // 30 days
+    sameSite: "strict",
+  });
 };

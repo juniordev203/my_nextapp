@@ -2,7 +2,6 @@
 
 import ThemeProvider from "@/providers/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { SessionProvider } from "next-auth/react";
 import { ToastContainer } from "react-toastify";
 
 const queryClient = new QueryClient({});
@@ -16,10 +15,8 @@ const RootProvider = ({ children }: { children: React.ReactNode }) => {
       storageKey="dashboard-theme"
     >
       <QueryClientProvider client={queryClient}>
-        <SessionProvider>
-          <ToastContainer position="top-right" autoClose={3000} />
-          {children}
-        </SessionProvider>
+        <ToastContainer position="top-right" autoClose={3000} />
+        {children}
       </QueryClientProvider>
     </ThemeProvider>
   );
