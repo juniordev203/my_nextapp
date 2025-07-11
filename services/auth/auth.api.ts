@@ -18,19 +18,20 @@ const authApi = {
   },
 };
 
-export const useLoginMutation = () => {
+export const useLoginMutate = () => {
   return useMutation({
     mutationFn: authApi.login,
   });
 };
 
-export const useRegisterMutation = () => {
+export const useRegisterMutate = () => {
   return useMutation({
     mutationFn: authApi.register,
   });
 };
-export const useLogoutMutation = () => {
+export const useLogoutMutate = () => {
   const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: authApi.logout,
     onSuccess: () => {

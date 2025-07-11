@@ -10,9 +10,11 @@
     "gen_api": "npx openapi --input http://localhost:5286/swagger/v1/swagger.json --output ./services/api --client axios"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@tanstack/react-form": "^1.14.1",
     "@tanstack/react-query": "^5.82.0",
     "@tanstack/react-router": "^1.127.0",
     "axios": "^1.10.0",
@@ -22,8 +24,12 @@
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.525.0",
     "next": "15.3.5",
+    "next-auth": "^4.24.11",
+    "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.60.0",
+    "react-toastify": "^11.0.5",
     "tailwind-merge": "^3.3.1",
     "zod": "^4.0.5"
   },
