@@ -2,11 +2,19 @@
 
 import ThemeProvider from "@/providers/ThemeProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 
 const queryClient = new QueryClient({});
 
 const RootProvider = ({ children }: { children: React.ReactNode }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
   return (
     <ThemeProvider
       attribute="class"
