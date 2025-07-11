@@ -1,7 +1,7 @@
 'use client';
 
 import { Controller, useFormContext } from 'react-hook-form';
-import { ColumnDef } from '@tanstack/react-table';
+import { ColumnDef, RowSelectionState } from '@tanstack/react-table';
 import { DataTable } from '../data-table';
 
 interface RHFDataTableProps<TData extends { id: string }, TValue> {
@@ -26,20 +26,16 @@ export function RHFDataTable<TData extends { id: string }, TValue>({
       name={name}
       control={control}
       defaultValue={{}}
-      render={({ field, fieldState }) => (
+      render={({ field, fieldState: { error } }) => (
         <DataTable
           columns={columns}
           data={data}
-          value={field.value}
-          onChange={(updaterOrValue) => {
-            if (typeof updaterOrValue === 'function') {
-              field.onChange(updaterOrValue(field.value));
-            } else {
-              field.onChange(updaterOrValue);
-            }
-          }}
+          // Pass the selection state from the form field to the table.
+          rowSelection={field.value as RowSelectionState}
+          // Pass the form field's update function to the table.
+          setRowSelection={field.onChange}
           title={title}
-          helperText={fieldState.error?.message ?? helperText}
+          helperText={error?.message ?? helperText}
         />
       )}
     />
