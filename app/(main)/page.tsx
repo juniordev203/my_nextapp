@@ -15,19 +15,19 @@ async function getDecks() {
         {
             id: "1",
             name: "TOEIC Business Vocabulary",
-            description: "Các từ vựng về kinh doanh thường gặp trong bài thi.",
+            description: "Vocabulary for business contexts in TOEIC.",
             cardCount: 50,
         },
         {
             id: "2",
             name: "Irregular Verbs",
-            description: "Tổng hợp các động từ bất quy tắc quan trọng.",
+            description: "Common irregular verbs used in TOEIC.",
             cardCount: 120,
         },
         {
             id: "3",
             name: "TOEIC Part 5 Common Traps",
-            description: "Những bẫy từ vựng và ngữ pháp cần tránh.",
+            description: "Common traps in Part 5 of the TOEIC test.",
             cardCount: 75,
         },
     ]
@@ -42,7 +42,7 @@ export default async function HomePage() {
             <div className="flex items-center justify-between mb-8">
                 <div className="flex gap-2 items-center">
                     <SidebarTrigger />
-                    <h1 className="text-3xl font-bold tracking-tight">Các bộ từ của bạn</h1>
+                    <h1 className="text-3xl font-bold tracking-tight">Vocabulary</h1>
                 </div>
                 <CreateDeckDialog />
             </div>
@@ -61,9 +61,9 @@ export default async function HomePage() {
                 </div>
             ) : (
                 <div className="text-center py-16 border-2 border-dashed rounded-lg">
-                    <h2 className="text-xl font-semibold">Chưa có bộ từ nào</h2>
+                    <h2 className="text-xl font-semibold">Have not Vocabulary</h2>
                     <p className="text-muted-foreground mt-2">
-                        Hãy tạo bộ từ đầu tiên để bắt đầu hành trình chinh phục TOEIC!
+                        Please create first vocabulary deck to start learning.
                     </p>
                 </div>
             )}

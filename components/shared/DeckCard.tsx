@@ -35,11 +35,11 @@ export function DeckCard({ name, description, cardCount }: DeckCardProps) {
                 <CardDescription>{description}</CardDescription>
             </CardHeader>
             <CardContent>
-                <p className="text-sm text-muted-foreground">{cardCount} từ vựng</p>
+                <p className="text-sm text-muted-foreground">{cardCount} vocab</p>
             </CardContent>
             <CardFooter>
                 <Button className="w-full">
-                    <BookOpen className="mr-2 h-4 w-4" /> Học ngay
+                    <BookOpen className="mr-2 h-4 w-4" /> Learn Now
                 </Button>
             </CardFooter>
         </Card>

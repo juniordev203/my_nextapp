@@ -35,45 +35,46 @@ export function CreateDeckDialog() {
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button>
-                    <PlusCircle className="mr-2 h-4 w-4" /> Tạo bộ từ mới
+                    <PlusCircle className="mr-2 h-4 w-4" /> Create new deck
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Tạo bộ từ mới</DialogTitle>
+                    <DialogTitle>Create new deck</DialogTitle>
                     <DialogDescription>
-                        Hãy đặt một cái tên thật hay cho bộ từ vựng của bạn.
+                        Enter the name and description for your new deck.
+                        You can add cards later.
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="name" className="text-right">
-                            Tên
+                            Name
                         </Label>
                         <Input
                             id="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             className="col-span-3"
-                            placeholder="Vd: TOEIC Part 5 Verbs"
+                            placeholder="Ex: TOEIC Part 5 Verbs"
                         />
                     </div>
                     <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="description" className="text-right">
-                            Mô tả
+                            Description
                         </Label>
                         <Input
                             id="description"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             className="col-span-3"
-                            placeholder="Vd: Các động từ hay gặp..."
+                            placeholder="Ex: Common verbs used in TOEIC"
                         />
                     </div>
                 </div>
                 <DialogFooter>
                     <Button type="submit" onClick={handleCreateDeck}>
-                        Tạo
+                        Create
                     </Button>
                 </DialogFooter>
             </DialogContent>
