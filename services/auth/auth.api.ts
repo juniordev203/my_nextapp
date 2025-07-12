@@ -4,6 +4,7 @@ import ApiUrl from "@/lib/endpointApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   setAccessTokenCookie,
+  setAccountIdLocalStorage,
   setRefreshTokenCookie,
 } from "@/lib/serverHelper";
 
@@ -12,8 +13,10 @@ const authApi = {
     const response = await axiosServices.post(ApiUrl.auth.login, payload);
     const accessToken = response.data.accessToken;
     const refreshToken = response.data.refreshToken;
+    const accountId = response.data.id;
     setAccessTokenCookie(accessToken);
     setRefreshTokenCookie(refreshToken);
+    setAccountIdLocalStorage(accountId);
     return response.data;
   },
   register: async (payload: RegisterPayload) => {

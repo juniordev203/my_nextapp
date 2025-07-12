@@ -22,3 +22,16 @@ export const setRefreshTokenCookie = (refreshToken: string) => {
     sameSite: "strict",
   });
 };
+export const getRefreshTokenCookie = (): string | undefined => {
+  return Cookies.get(COOKIE_KEYS.REFRESH_TOKEN);
+};
+export const clearRefreshTokenCookie = () => {
+  Cookies.remove(COOKIE_KEYS.REFRESH_TOKEN);
+};
+export const clearAllCookies = () => {
+  clearAccessTokenCookie();
+  clearRefreshTokenCookie();
+};
+export const setAccountIdLocalStorage = (accountId: number) => {
+  localStorage.setItem(COOKIE_KEYS.ACCOUNT_ID, accountId.toString());
+};

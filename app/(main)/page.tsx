@@ -2,6 +2,7 @@
 
 import { DeckCard } from "@/components/shared/DeckCard"
 import { CreateDeckDialog } from "@/components/shared/CreateDeckDialog"
+import { SidebarTrigger } from "@/components/ui/sidebar"
 
 // Hàm này giả lập việc gọi API để lấy danh sách các bộ từ
 // Trong dự án thật, mày sẽ gọi API backend của mày ở đây
@@ -39,7 +40,10 @@ export default async function HomePage() {
     return (
         <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
-                <h1 className="text-3xl font-bold tracking-tight">Các bộ từ của bạn</h1>
+                <div className="flex gap-2 items-center">
+                    <SidebarTrigger />
+                    <h1 className="text-3xl font-bold tracking-tight">Các bộ từ của bạn</h1>
+                </div>
                 <CreateDeckDialog />
             </div>
 
